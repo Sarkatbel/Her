@@ -951,14 +951,33 @@ age-badge {
     vertical-align: 2px;
 }
 
-/* Одинаковый размер секретных фотографий 12 и 13 */
+/* =========================================
+   СЕКРЕТНЫЕ ФОТО 12 И 13
+   АБСОЛЮТНО ОДИНАКОВЫЙ РАЗМЕР
+========================================= */
 
-#secretPhoto12 .memory-image,
-#secretPhoto13 .memory-image {
-    width: 78% !important;
-    max-width: 78% !important;
-    height: auto !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#secretPhoto12 img.memory-image,
+#secretPhoto13 img.memory-image {
+    width: 420px !important;
+    height: 560px !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Для телефона */
+@media (max-width: 600px) {
+
+    #secretPhoto12 img.memory-image,
+    #secretPhoto13 img.memory-image {
+        width: 82vw !important;
+        height: 500px !important;
+
+        object-fit: cover !important;
+    }
+
 }
