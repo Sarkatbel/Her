@@ -5,7 +5,6 @@
 const revealElements =
     document.querySelectorAll(".reveal");
 
-
 const revealObserver =
     new IntersectionObserver(
 
@@ -20,6 +19,7 @@ const revealObserver =
                     revealObserver.unobserve(
                         entry.target
                     );
+
                 }
 
             });
@@ -101,14 +101,12 @@ function closeLightbox() {
 }
 
 
-
 /* Кнопка */
 
 lightboxClose.addEventListener(
     "click",
     closeLightbox
 );
-
 
 
 /* Клик по фону */
@@ -127,7 +125,6 @@ lightbox.addEventListener(
 
     }
 );
-
 
 
 /* ESC */
@@ -162,13 +159,16 @@ const secretPhoto12 =
 const secretPhoto13 =
     document.getElementById("secretPhoto13");
 
-const secretSection =
-    document.querySelector(".secret-section");
 
+
+/* =================================
+   ОТКРЫТИЕ СЕКРЕТНОЙ ЧАСТИ
+================================= */
 
 openSecret.addEventListener(
     "click",
     () => {
+
 
         /* =================================
            ЭФФЕКТ ПЕРЕХОДА
@@ -177,24 +177,18 @@ openSecret.addEventListener(
         const transition =
             document.createElement("div");
 
+
         transition.className =
             "secret-transition";
+
 
         transition.innerHTML =
             "<span>Только для тебя ❤️</span>";
 
+
         document.body.appendChild(
             transition
         );
-
-
-        /* Убираем эффект через 1.5 секунды */
-
-        setTimeout(() => {
-
-            transition.remove();
-
-        }, 1500);
 
 
         /* =================================
@@ -206,14 +200,16 @@ openSecret.addEventListener(
         );
 
 
-        /* Прячем кнопку */
+        /* =================================
+           ПРЯЧЕМ КНОПКУ
+        ================================= */
 
         openSecret.style.display =
             "none";
 
 
         /* =================================
-           ПОКАЗЫВАЕМ ФОТО 13
+           ЧЕРЕЗ 1.2 СЕКУНДЫ ФОТО 13
         ================================= */
 
         setTimeout(() => {
@@ -232,23 +228,25 @@ openSecret.addEventListener(
         setTimeout(() => {
 
             secretPhoto12.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "center"
+
             });
 
         }, 200);
 
-    }
-);
+
+        /* =================================
+           УБИРАЕМ ЭФФЕКТ
+        ================================= */
 
         setTimeout(() => {
 
-            secretPhoto12.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            transition.remove();
 
-        }, 200);
+        }, 1500);
 
     }
 );
