@@ -1,4 +1,3 @@
-
 /* ================================
    ОСНОВНЫЕ НАСТРОЙКИ
 ================================ */
@@ -811,229 +810,30 @@ body {
         scale(0.96);
 }
 
-
 /* =================================
    СКРЫТЫЕ ФОТО
 ================================= */
 
 .secret-photo {
-
     display: none;
-
     opacity: 0;
-
-    transform:
-        translateY(40px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
 }
-
 
 .secret-photo.show {
-
     display: block;
-
-    animation:
-        secretAppear 1s
-        cubic-bezier(0.2, 0.7, 0.2, 1)
-        forwards;
+    animation: secretAppear 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
-
 
 @keyframes secretAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(40px)
-            scale(0.97);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-/* =================================
-   РАЗМЕР СЕКРЕТНОГО ФОТО 12
-================================= */
-
-#secretPhoto12 {
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#secretPhoto12 .memory-image {
-    width: 100%;
-}
-
-
-/* На телефоне немного больше */
-
-@media (max-width: 600px) {
-
-    #secretPhoto12 {
-        width: 82%;
-    }
-
-}
-/* =================================
-   РАЗМЕР СЕКРЕТНЫХ ФОТО
-================================= */
-
-/* Фото 12 */
-
-#secretPhoto12 {
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#secretPhoto12 .memory-image {
-    width: 100%;
-}
-
-
-/* Фото 13 — ещё немного меньше */
-
-#secretPhoto13 {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#secretPhoto13 .memory-image {
-    width: 100%;
-}
-
-
-/* Телефон */
-
-@media (max-width: 600px) {
-
-    #secretPhoto12 {
-        width: 82%;
-    }
-
-    #secretPhoto13 {
-        width: 72%;
-    }
-
-}
-/* 18+ */
-
-.age-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    color: #c98d96;
-
-    border: 1px solid rgba(201, 141, 150, 0.35);
-
-    border-radius: 999px;
-
-    padding: 3px 7px;
-
-    margin-right: 7px;
-
-    vertical-align: 2px;
-}
-/* =========================================
-   ✨ ЭФФЕКТ ОТКРЫТИЯ СЕКРЕТНЫХ ФОТО
-========================================= */
-
-/* Мягкое свечение всей страницы */
-
-.secret-section.secret-opening {
-    animation: softGlow 1.2s ease forwards;
-}
-
-@keyframes softGlow {
-    0% {
-        box-shadow: 0 0 0 rgba(201, 141, 150, 0);
-    }
-
-    40% {
-        box-shadow:
-            0 0 45px rgba(201, 141, 150, 0.18),
-            0 0 90px rgba(255, 190, 200, 0.12);
-    }
-
-    100% {
-        box-shadow: 0 0 0 rgba(201, 141, 150, 0);
-    }
-}
-
-
-/* Фото появляются чуть мягче */
-
-.secret-photo.show {
-    animation:
-        secretPhotoReveal
-        1.1s
-        cubic-bezier(0.2, 0.7, 0.2, 1)
-        forwards;
-}
-
-@keyframes secretPhotoReveal {
-
     0% {
         opacity: 0;
-        transform:
-            translateY(45px)
-            scale(0.94);
-        filter: blur(6px);
+        transform: translateY(45px) scale(0.96);
+        filter: blur(3px);
     }
 
     60% {
         opacity: 1;
-        filter: blur(0);
-    }
-
-    100% {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-        filter: blur(0);
-    }
-}
-/* =================================
-   ЭФФЕКТ ОТКРЫТИЯ СЕКРЕТНЫХ ФОТО
-================================= */
-
-#secretPhoto12.show {
-    animation: secretReveal 1.1s ease forwards;
-}
-
-#secretPhoto13.show {
-    animation: secretReveal 1.1s ease forwards;
-}
-
-@keyframes secretReveal {
-
-    0% {
-        opacity: 0;
-        transform: translateY(35px) scale(0.94);
-        filter: blur(5px);
-    }
-
-    60% {
-        opacity: 1;
+        transform: translateY(-4px) scale(1.01);
         filter: blur(0);
     }
 
@@ -1043,78 +843,82 @@ body {
         filter: blur(0);
     }
 }
-/* =========================================
-   🔐 СЕКРЕТНОЕ ОТКРЫТИЕ
-========================================= */
 
-.secret-transition {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
 
-    display: flex;
+/* =================================
+   18+
+================================= */
+
+.age-badge {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    background: rgba(255, 226, 232, 0);
+    font-size: 16px !important;
+    font-weight: 600;
 
-    pointer-events: none;
+    color: #c98d96;
 
-    animation: secretScreen 1.5s ease forwards;
-}
+    border: 2px solid rgba(201, 141, 150, 0.35);
 
-.secret-transition span {
-    font-size: 22px;
-    letter-spacing: 1px;
+    border-radius: 999px;
 
-    color: #b96f7b;
+    padding: 4px 8px;
 
-    opacity: 0;
-    transform: scale(.8);
+    margin-right: 7px;
 
-    animation: secretText 1.2s ease forwards;
+    vertical-align: 2px;
 }
 
 
-@keyframes secretScreen {
+/* =================================
+   ОДИНАКОВЫЙ РАЗМЕР ФОТО 12 И 13
+================================= */
 
-    0% {
-        background: rgba(255, 226, 232, 0);
-    }
+#secretPhoto12,
+#secretPhoto13 {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
 
-    25% {
-        background: rgba(255, 226, 232, .92);
-    }
+#secretPhoto12 .memory-image,
+#secretPhoto13 .memory-image {
+    width: 420px !important;
+    height: 560px !important;
+    max-width: 90% !important;
 
-    70% {
-        background: rgba(255, 226, 232, .92);
-    }
+    object-fit: cover !important;
 
-    100% {
-        background: rgba(255, 226, 232, 0);
-    }
+    display: block !important;
+    margin: 0 auto !important;
 }
 
 
-@keyframes secretText {
+/* =================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+================================= */
 
-    0% {
-        opacity: 0;
-        transform: scale(.8);
+@media (max-width: 600px) {
+
+    #secretPhoto12,
+    #secretPhoto13 {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        align-items: center !important;
     }
 
-    30% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
+    #secretPhoto12 .memory-image,
+    #secretPhoto13 .memory-image {
+        width: 78vw !important;
+        height: 105vw !important;
+        max-width: 320px !important;
+        max-height: 430px !important;
 
-    70% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.15);
+        object-fit: cover !important;
+        margin: 0 auto !important;
     }
 }
