@@ -1043,3 +1043,54 @@ body {
         filter: blur(0);
     }
 }
+/* =========================================
+   🔐 СЕКРЕТНЫЕ ФОТО
+========================================= */
+
+/* До нажатия кнопки фото полностью скрыты */
+
+.secret-photo {
+    display: none !important;
+    opacity: 0;
+}
+
+
+/* После нажатия кнопки */
+
+.secret-photo.show {
+    display: block !important;
+
+    animation:
+        secretPhotoOpen
+        1.2s
+        cubic-bezier(0.2, 0.7, 0.2, 1)
+        forwards;
+}
+
+
+/* Анимация */
+
+@keyframes secretPhotoOpen {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(45px)
+            scale(0.94);
+        filter: blur(7px);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+        filter: blur(0);
+    }
+
+}
