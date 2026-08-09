@@ -950,3 +950,16 @@ age-badge {
 
     vertical-align: 2px;
 }
+/* =========================================
+   СЕКРЕТНЫЕ ФОТО 12 И 13
+   ОДИНАКОВЫЙ РАЗМЕР
+========================================= */
+
+#secretPhoto12,
+#secretPhoto13 {
+    width: 78% !important;
+    height: auto !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
