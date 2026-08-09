@@ -161,20 +161,32 @@ const secretPhoto12 =
 const secretPhoto13 =
     document.getElementById("secretPhoto13");
 
-const secretSection = document.querySelector(".secret-section");
-
-if (secretSection) {
-    secretSection.classList.add("secret-opening");
-
-    setTimeout(() => {
-        secretSection.classList.remove("secret-opening");
-    }, 1200);
-}
+const secretSection =
+    document.querySelector(".secret-section");
 
 
 openSecret.addEventListener(
     "click",
     () => {
+
+        /* ✨ ЭФФЕКТ ОТКРЫТИЯ */
+
+        if (secretSection) {
+
+            secretSection.classList.add(
+                "secret-opening"
+            );
+
+            setTimeout(() => {
+
+                secretSection.classList.remove(
+                    "secret-opening"
+                );
+
+            }, 1200);
+
+        }
+
 
         /* Показываем фото 12 */
 
@@ -189,9 +201,8 @@ openSecret.addEventListener(
             "none";
 
 
-        /* Через небольшой момент
-           показываем возможность
-           открыть фото 13 */
+        /* Через 1.2 секунды
+           показываем фото 13 */
 
         setTimeout(() => {
 
@@ -215,6 +226,7 @@ openSecret.addEventListener(
         }, 200);
 
     }
+);
 );
 /* =================================
    ОБНОВЛЕНИЕ ФОТОГАЛЕРЕИ
