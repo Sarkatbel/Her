@@ -1,9 +1,11 @@
+
 /* =================================
    ПОЯВЛЕНИЕ ФОТОГРАФИЙ ПРИ СКРОЛЛЕ
 ================================= */
 
 const revealElements =
     document.querySelectorAll(".reveal");
+
 
 const revealObserver =
     new IntersectionObserver(
@@ -19,7 +21,6 @@ const revealObserver =
                     revealObserver.unobserve(
                         entry.target
                     );
-
                 }
 
             });
@@ -101,11 +102,17 @@ function closeLightbox() {
 }
 
 
+
+/* Кнопка */
+
 lightboxClose.addEventListener(
     "click",
     closeLightbox
 );
 
+
+
+/* Клик по фону */
 
 lightbox.addEventListener(
     "click",
@@ -123,6 +130,9 @@ lightbox.addEventListener(
 );
 
 
+
+/* ESC */
+
 document.addEventListener(
     "keydown",
     (event) => {
@@ -137,8 +147,6 @@ document.addEventListener(
 
     }
 );
-
-
 
 /* =================================
    СЕКРЕТНЫЕ ФОТО
@@ -171,20 +179,9 @@ openSecret.addEventListener(
             "none";
 
 
-        /* Плавно переходим к фото 12 */
-
-        setTimeout(() => {
-
-            secretPhoto12.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-        }, 100);
-
-
-        /* Через 1.2 секунды
-           появляется фото 13 */
+        /* Через небольшой момент
+           показываем возможность
+           открыть фото 13 */
 
         setTimeout(() => {
 
@@ -194,11 +191,21 @@ openSecret.addEventListener(
 
         }, 1200);
 
+
+        /* Плавно прокручиваем
+           к фото 12 */
+
+        setTimeout(() => {
+
+            secretPhoto12.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 200);
+
     }
 );
-
-
-
 /* =================================
    ОБНОВЛЕНИЕ ФОТОГАЛЕРЕИ
    → ВОЗВРАТ НА ПЕРВУЮ СТРАНИЦУ
