@@ -1,4 +1,3 @@
-
 /* ================================
    ОСНОВНЫЕ НАСТРОЙКИ
 ================================ */
@@ -811,124 +810,115 @@ body {
         scale(0.96);
 }
 
-
 /* =================================
    СКРЫТЫЕ ФОТО
 ================================= */
 
 .secret-photo {
-
     display: none;
-
     opacity: 0;
-
-    transform:
-        translateY(40px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
 }
-
 
 .secret-photo.show {
-
     display: block;
-
-    animation:
-        secretAppear 1s
-        cubic-bezier(0.2, 0.7, 0.2, 1)
-        forwards;
+    animation: secretAppear 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
-
 
 @keyframes secretAppear {
-
-    from {
-
+    0% {
         opacity: 0;
-
-        transform:
-            translateY(40px)
-            scale(0.97);
+        transform: translateY(45px) scale(0.96);
+        filter: blur(3px);
     }
 
-    to {
-
+    60% {
         opacity: 1;
+        transform: translateY(-4px) scale(1.01);
+        filter: blur(0);
+    }
 
-        transform:
-            translateY(0)
-            scale(1);
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
     }
 }
 
+
 /* =================================
-   РАЗМЕР СЕКРЕТНОГО ФОТО 12
+   18+
 ================================= */
 
-#secretPhoto12 {
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
+.age-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px !important;
+    font-weight: 600;
+
+    color: #c98d96;
+
+    border: 2px solid rgba(201, 141, 150, 0.35);
+
+    border-radius: 999px;
+
+    padding: 4px 8px;
+
+    margin-right: 7px;
+
+    vertical-align: 2px;
 }
 
-#secretPhoto12 .memory-image {
-    width: 100%;
-}
 
-
-/* На телефоне немного больше */
-
-@media (max-width: 600px) {
-
-    #secretPhoto12 {
-        width: 82%;
-    }
-
-}
 /* =================================
-   РАЗМЕР СЕКРЕТНЫХ ФОТО
+   ОДИНАКОВЫЙ РАЗМЕР ФОТО 12 И 13
 ================================= */
 
-/* Фото 12 */
-
-#secretPhoto12 {
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#secretPhoto12 .memory-image {
-    width: 100%;
-}
-
-
-/* Фото 13 — ещё немного меньше */
-
+#secretPhoto12,
 #secretPhoto13 {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
 }
 
+#secretPhoto12 .memory-image,
 #secretPhoto13 .memory-image {
-    width: 100%;
+    width: 420px !important;
+    height: 560px !important;
+    max-width: 90% !important;
+
+    object-fit: cover !important;
+
+    display: block !important;
+    margin: 0 auto !important;
 }
 
 
-/* Телефон */
+/* =================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+================================= */
 
 @media (max-width: 600px) {
 
-    #secretPhoto12 {
-        width: 82%;
-    }
-
+    #secretPhoto12,
     #secretPhoto13 {
-        width: 72%;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        align-items: center !important;
     }
 
+    #secretPhoto12 .memory-image,
+    #secretPhoto13 .memory-image {
+        width: 78vw !important;
+        height: 105vw !important;
+        max-width: 320px !important;
+        max-height: 430px !important;
+
+        object-fit: cover !important;
+        margin: 0 auto !important;
+    }
 }
-
-
