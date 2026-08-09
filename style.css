@@ -1044,53 +1044,77 @@ body {
     }
 }
 /* =========================================
-   🔐 СЕКРЕТНЫЕ ФОТО
+   🔐 СЕКРЕТНОЕ ОТКРЫТИЕ
 ========================================= */
 
-/* До нажатия кнопки фото полностью скрыты */
+.secret-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
 
-.secret-photo {
-    display: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 226, 232, 0);
+
+    pointer-events: none;
+
+    animation: secretScreen 1.5s ease forwards;
+}
+
+.secret-transition span {
+    font-size: 22px;
+    letter-spacing: 1px;
+
+    color: #b96f7b;
+
     opacity: 0;
+    transform: scale(.8);
+
+    animation: secretText 1.2s ease forwards;
 }
 
 
-/* После нажатия кнопки */
-
-.secret-photo.show {
-    display: block !important;
-
-    animation:
-        secretPhotoOpen
-        1.2s
-        cubic-bezier(0.2, 0.7, 0.2, 1)
-        forwards;
-}
-
-
-/* Анимация */
-
-@keyframes secretPhotoOpen {
+@keyframes secretScreen {
 
     0% {
-        opacity: 0;
-        transform:
-            translateY(45px)
-            scale(0.94);
-        filter: blur(7px);
+        background: rgba(255, 226, 232, 0);
     }
 
-    50% {
-        opacity: 0.8;
-        filter: blur(2px);
+    25% {
+        background: rgba(255, 226, 232, .92);
+    }
+
+    70% {
+        background: rgba(255, 226, 232, .92);
     }
 
     100% {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-        filter: blur(0);
+        background: rgba(255, 226, 232, 0);
+    }
+}
+
+
+@keyframes secretText {
+
+    0% {
+        opacity: 0;
+        transform: scale(.8);
     }
 
+    30% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
 }
