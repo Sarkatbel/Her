@@ -161,6 +161,16 @@ const secretPhoto12 =
 const secretPhoto13 =
     document.getElementById("secretPhoto13");
 
+const secretSection = document.querySelector(".secret-section");
+
+if (secretSection) {
+    secretSection.classList.add("secret-opening");
+
+    setTimeout(() => {
+        secretSection.classList.remove("secret-opening");
+    }, 1200);
+}
+
 
 openSecret.addEventListener(
     "click",
