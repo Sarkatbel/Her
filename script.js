@@ -101,15 +101,11 @@ function closeLightbox() {
 }
 
 
-/* Кнопка */
-
 lightboxClose.addEventListener(
     "click",
     closeLightbox
 );
 
-
-/* Клик по фону */
 
 lightbox.addEventListener(
     "click",
@@ -126,8 +122,6 @@ lightbox.addEventListener(
     }
 );
 
-
-/* ESC */
 
 document.addEventListener(
     "keydown",
@@ -160,57 +154,37 @@ const secretPhoto13 =
     document.getElementById("secretPhoto13");
 
 
-
-/* =================================
-   ОТКРЫТИЕ СЕКРЕТНОЙ ЧАСТИ
-================================= */
-
 openSecret.addEventListener(
     "click",
     () => {
 
-
-        /* =================================
-           ЭФФЕКТ ПЕРЕХОДА
-        ================================= */
-
-        const transition =
-            document.createElement("div");
-
-
-        transition.className =
-            "secret-transition";
-
-
-        transition.innerHTML =
-            "<span>Только для тебя ❤️</span>";
-
-
-        document.body.appendChild(
-            transition
-        );
-
-
-        /* =================================
-           ПОКАЗЫВАЕМ ФОТО 12
-        ================================= */
+        /* Показываем фото 12 */
 
         secretPhoto12.classList.add(
             "show"
         );
 
 
-        /* =================================
-           ПРЯЧЕМ КНОПКУ
-        ================================= */
+        /* Прячем кнопку */
 
         openSecret.style.display =
             "none";
 
 
-        /* =================================
-           ЧЕРЕЗ 1.2 СЕКУНДЫ ФОТО 13
-        ================================= */
+        /* Плавно переходим к фото 12 */
+
+        setTimeout(() => {
+
+            secretPhoto12.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 100);
+
+
+        /* Через 1.2 секунды
+           появляется фото 13 */
 
         setTimeout(() => {
 
@@ -219,34 +193,6 @@ openSecret.addEventListener(
             );
 
         }, 1200);
-
-
-        /* =================================
-           ПЕРЕХОД К ФОТО 12
-        ================================= */
-
-        setTimeout(() => {
-
-            secretPhoto12.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
-
-        }, 200);
-
-
-        /* =================================
-           УБИРАЕМ ЭФФЕКТ
-        ================================= */
-
-        setTimeout(() => {
-
-            transition.remove();
-
-        }, 1500);
 
     }
 );
