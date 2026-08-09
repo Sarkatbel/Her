@@ -1012,3 +1012,34 @@ body {
         filter: blur(0);
     }
 }
+/* =================================
+   ЭФФЕКТ ОТКРЫТИЯ СЕКРЕТНЫХ ФОТО
+================================= */
+
+#secretPhoto12.show {
+    animation: secretReveal 1.1s ease forwards;
+}
+
+#secretPhoto13.show {
+    animation: secretReveal 1.1s ease forwards;
+}
+
+@keyframes secretReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.94);
+        filter: blur(5px);
+    }
+
+    60% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
