@@ -169,9 +169,6 @@ const secretSection =
 openSecret.addEventListener(
     "click",
     () => {
-openSecret.addEventListener(
-    "click",
-    () => {
 
         /* =================================
            ЭФФЕКТ ПЕРЕХОДА
@@ -190,6 +187,9 @@ openSecret.addEventListener(
             transition
         );
 
+
+        /* Убираем эффект через 1.5 секунды */
+
         setTimeout(() => {
 
             transition.remove();
@@ -197,7 +197,9 @@ openSecret.addEventListener(
         }, 1500);
 
 
-        /* Показываем фото 12 */
+        /* =================================
+           ПОКАЗЫВАЕМ ФОТО 12
+        ================================= */
 
         secretPhoto12.classList.add(
             "show"
@@ -210,8 +212,9 @@ openSecret.addEventListener(
             "none";
 
 
-        /* Через небольшой момент
-           показываем фото 13 */
+        /* =================================
+           ПОКАЗЫВАЕМ ФОТО 13
+        ================================= */
 
         setTimeout(() => {
 
@@ -222,8 +225,9 @@ openSecret.addEventListener(
         }, 1200);
 
 
-        /* Плавно прокручиваем
-           к фото 12 */
+        /* =================================
+           ПЕРЕХОД К ФОТО 12
+        ================================= */
 
         setTimeout(() => {
 
