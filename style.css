@@ -1028,3 +1028,103 @@ age-badge {
 
     vertical-align: 2px;
 }
+/* =================================
+   СЕКРЕТНЫЕ ФОТО — СКРЫТИЕ
+================================= */
+
+.secret-photo {
+    display: none;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.secret-photo.show {
+    display: block;
+    animation: secretAppear 1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes secretAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =================================
+   РАЗМЕР ФОТО 12
+================================= */
+
+#secretPhoto12 {
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#secretPhoto12 .memory-image {
+    width: 100%;
+}
+
+
+/* =================================
+   РАЗМЕР ФОТО 13
+================================= */
+
+#secretPhoto13 {
+    width: 38%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#secretPhoto13 .memory-image {
+    width: 100%;
+}
+
+
+/* =================================
+   ТЕЛЕФОН
+================================= */
+
+@media (max-width: 600px) {
+
+    #secretPhoto12 {
+        width: 72%;
+    }
+
+    #secretPhoto13 {
+        width: 72%;
+    }
+
+}
+
+
+/* =================================
+   18+
+================================= */
+
+.age-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #c98d96;
+
+    border: 1px solid rgba(201, 141, 150, 0.35);
+
+    border-radius: 999px;
+
+    padding: 3px 7px;
+
+    margin-right: 7px;
+
+    vertical-align: 2px;
+}
