@@ -169,24 +169,32 @@ const secretSection =
 openSecret.addEventListener(
     "click",
     () => {
+openSecret.addEventListener(
+    "click",
+    () => {
 
-        /* ✨ ЭФФЕКТ ОТКРЫТИЯ */
+        /* =================================
+           ЭФФЕКТ ПЕРЕХОДА
+        ================================= */
 
-        if (secretSection) {
+        const transition =
+            document.createElement("div");
 
-            secretSection.classList.add(
-                "secret-opening"
-            );
+        transition.className =
+            "secret-transition";
 
-            setTimeout(() => {
+        transition.innerHTML =
+            "<span>Только для тебя ❤️</span>";
 
-                secretSection.classList.remove(
-                    "secret-opening"
-                );
+        document.body.appendChild(
+            transition
+        );
 
-            }, 1200);
+        setTimeout(() => {
 
-        }
+            transition.remove();
+
+        }, 1500);
 
 
         /* Показываем фото 12 */
@@ -202,7 +210,7 @@ openSecret.addEventListener(
             "none";
 
 
-        /* Через 1.2 секунды
+        /* Через небольшой момент
            показываем фото 13 */
 
         setTimeout(() => {
@@ -216,6 +224,18 @@ openSecret.addEventListener(
 
         /* Плавно прокручиваем
            к фото 12 */
+
+        setTimeout(() => {
+
+            secretPhoto12.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 200);
+
+    }
+);
 
         setTimeout(() => {
 
